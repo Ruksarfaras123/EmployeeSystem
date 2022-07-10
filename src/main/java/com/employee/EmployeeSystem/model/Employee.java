@@ -33,19 +33,19 @@ public class Employee
     @Column
     private Date dob;
 
-    @Column
-    private Project project;
-
-    @Column
-    private Finance finance;
-
-    @Column
-    private  Attendance attendance;
+//    @Column
+//    private Project project;
+//
+//    @Column
+//    private Finance finance;
+//
+//    @Column
+//    private  Attendance attendance;
 
     public Employee() {
     }
 
-    public Employee(long empId, String empName, String empBaseLocation, String empEmail, String empDoj, String contactNumber, String bloodGroup, Date dob, Project project, Finance finance, Attendance attendance) {
+    public Employee(long empId, String empName, String empBaseLocation, String empEmail, String empDoj, String contactNumber, String bloodGroup, Date dob) {
         this.empId = empId;
         this.empName = empName;
         this.empBaseLocation = empBaseLocation;
@@ -54,9 +54,9 @@ public class Employee
         this.contactNumber = contactNumber;
         this.bloodGroup = bloodGroup;
         this.dob = dob;
-        this.project = project;
-        this.finance = finance;
-        this.attendance = attendance;
+//        this.project = project;
+//        this.finance = finance;
+//        this.attendance = attendance;
     }
 
     public long getEmpId() {
@@ -123,27 +123,27 @@ public class Employee
         this.dob = dob;
     }
 
-    public Project getProject() {
-        return project;
-    }
-
-    public void setProject(Project project) {
-        this.project = project;
-    }
-
-    public Finance getFinance() {
-        return finance;
-    }
-
-    public void setFinance(Finance finance) {
-        this.finance = finance;
-    }
-
-    public Attendance getAttendance() {
-        return attendance;
-    }
-
-    public void setAttendance(Attendance attendance) {
-        this.attendance = attendance;
-    }
+//    public Project getProject() {
+//        return project;
+//    }
+//
+//    public void setProject(Project project) {
+//        this.project = project;
+//    }
+//
+//    public Finance getFinance() {
+//        return finance;
+//    }
+//
+//    public void setFinance(Finance finance) {
+//        this.finance = finance;
+//    }
+//
+//    public Attendance getAttendance() {
+//        return attendance;
+//    }
+//
+//    public void setAttendance(Attendance attendance) {
+//        this.attendance = attendance;
+//    }
 }

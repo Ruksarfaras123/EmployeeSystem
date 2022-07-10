@@ -1,3 +1,4 @@
+/*
 package com.employee.EmployeeSystem.model;
 
 import javax.persistence.Column;
@@ -17,3 +18,4 @@ public class Finance {
 
 
 }
+*/

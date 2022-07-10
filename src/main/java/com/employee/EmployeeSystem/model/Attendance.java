@@ -1,3 +1,4 @@
+/*
 package com.employee.EmployeeSystem.model;
 
 import javax.persistence.Column;
@@ -19,3 +20,4 @@ public class Attendance {
     public  String onLeave ;
 
 }
+*/
