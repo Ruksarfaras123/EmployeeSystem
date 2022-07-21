@@ -1,25 +1,29 @@
-/*
 package com.employee.EmployeeSystem.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "project")
 public class Project {
-    @Column
+
+    @Column(name ="project_id")
     @Id
     private String projectId;
-    @Column
+
+    @Column(name ="project_manager")
     private String projectManager;
-    @Column
+
+    @Column(name ="project_name")
     private String projectName ;
-    @Column
+
+    @Column(name ="project_client")
     private String projectClient;
-    @Column
+
+    @Column(name ="project_location")
     private String projectLocation;
 
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "emp_id")
+    private Employee employee;
+
 }
-*/

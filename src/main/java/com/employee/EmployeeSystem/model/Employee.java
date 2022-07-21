@@ -7,45 +7,45 @@ import java.util.Date;
 @Table(name = "employee")
 public class Employee
 {
-    @Column
+    @Column(name = "emp_id")
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long empId;
 
-    @Column
+    @Column(name ="emp_name")
     private String empName;
 
-    @Column
+    @Column(name ="emp_base_location")
     private String empBaseLocation;
 
-    @Column
+    @Column(name ="emp_email")
     private String empEmail;
 
-    @Column
+    @Column(name ="emp_doj")
     private String empDoj;
 
-    @Column
+    @Column(name ="contact_number")
     private String contactNumber;
 
-    @Column
+    @Column(name ="blood_group")
     private String bloodGroup;
 
-    @Column
+    @Column(name ="dob")
     private Date dob;
 
-//    @Column
-//    private Project project;
-//
-//    @Column
-//    private Finance finance;
-//
-//    @Column
-//    private  Attendance attendance;
+    @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Project project;
+
+    @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Finance finance;
+
+    @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private  Attendance attendance;
 
     public Employee() {
     }
 
-    public Employee(long empId, String empName, String empBaseLocation, String empEmail, String empDoj, String contactNumber, String bloodGroup, Date dob) {
+    public Employee(long empId, String empName, String empBaseLocation, String empEmail, String empDoj, String contactNumber, String bloodGroup, Date dob, Project project, Finance finance, Attendance attendance) {
         this.empId = empId;
         this.empName = empName;
         this.empBaseLocation = empBaseLocation;
@@ -54,9 +54,9 @@ public class Employee
         this.contactNumber = contactNumber;
         this.bloodGroup = bloodGroup;
         this.dob = dob;
-//        this.project = project;
-//        this.finance = finance;
-//        this.attendance = attendance;
+        this.project = project;
+        this.finance = finance;
+        this.attendance = attendance;
     }
 
     public long getEmpId() {
@@ -123,27 +123,27 @@ public class Employee
         this.dob = dob;
     }
 
-//    public Project getProject() {
-//        return project;
-//    }
-//
-//    public void setProject(Project project) {
-//        this.project = project;
-//    }
-//
-//    public Finance getFinance() {
-//        return finance;
-//    }
-//
-//    public void setFinance(Finance finance) {
-//        this.finance = finance;
-//    }
-//
-//    public Attendance getAttendance() {
-//        return attendance;
-//    }
-//
-//    public void setAttendance(Attendance attendance) {
-//        this.attendance = attendance;
-//    }
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
+    }
+
+    public Finance getFinance() {
+        return finance;
+    }
+
+    public void setFinance(Finance finance) {
+        this.finance = finance;
+    }
+
+    public Attendance getAttendance() {
+        return attendance;
+    }
+
+    public void setAttendance(Attendance attendance) {
+        this.attendance = attendance;
+    }
 }
