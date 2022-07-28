@@ -1,13 +1,16 @@
 package com.employee.EmployeeSystem.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Date;
 
 @Entity
 @Table(name = "employee")
 public class Employee
 {
-    @Column(name = "emp_id")
+    @Column(name = "id")
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long empId;
@@ -31,15 +34,22 @@ public class Employee
     private String bloodGroup;
 
     @Column(name ="dob")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private Date dob;
 
-    @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="project_id",referencedColumnName = "id")
+    @JsonManagedReference
     private Project project;
 
-    @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="finance_id",referencedColumnName = "id")
+    @JsonManagedReference
     private Finance finance;
 
-    @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="attendance_id",referencedColumnName = "id")
+    @JsonManagedReference
     private  Attendance attendance;
 
     public Employee() {

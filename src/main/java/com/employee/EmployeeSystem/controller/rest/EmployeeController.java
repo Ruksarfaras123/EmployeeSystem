@@ -16,15 +16,9 @@ public class EmployeeController {
     EmployeeService employeeService;
 
     @GetMapping("/employee/{id}")
-    public ResponseEntity<Employee> getById(@PathVariable Long id )
+    public ResponseEntity<Employee> getById(@PathVariable int id )
     {
-        if (id instanceof Long)
-        {
-            return new ResponseEntity("Incorrect type of employee id", HttpStatus.NOT_ACCEPTABLE);
-        }
-
-        return new ResponseEntity(
-            "details  " + employeeService.getById(id), HttpStatus.OK);
+        return new ResponseEntity<Employee>(employeeService.getById(id), HttpStatus.OK);
     }
 
     @PostMapping("/employee/getAll")
